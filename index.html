@@ -15,7 +15,7 @@
     <header>
         <img
             class="logo"
-            src="logo.png"
+            src="/logo.png"
             alt="Imagem de DOE">
         <h2>A sua doação importa</h2>
         <p>Até 3 vidas com 1 doação</p>
@@ -27,22 +27,25 @@
 
     <section class="form hide">
         <h2>Entre na lista de doadores</h2>
-        <form action="/">
+        <form action="/" method="POST">
+            
             <input 
                 type="text" 
                 name="name"
                 placeholder="Nome Completo"
             >
+
             <input 
-            type="text" 
-            name="email"
-            placeholder="Email"
-        >
-        <input 
-        type="text" 
-        name="blood"
-        placeholder="Tipo sanguíneo"
-        >
+                type="text" 
+                name="email"
+                placeholder="Email"
+            >
+
+            <input 
+                type="text" 
+                name="blood"
+                placeholder="Tipo sanguíneo"
+            >
 
         <button>Quero ajudar</button>
         </form>
@@ -52,22 +55,16 @@
         <h2>Últimos <span>doadores</span></h2>
 
         <section class="donors">
+
+
+            {% for donor in donors %}
+
             <div class="donor">
-                <div class="blood">AB+</div>
-                <p>Raul Sigoli</p>
+                <div class="blood">{{donor.blood}}</div>
+                <p>{{donor.name}}</p>
             </div>
-            <div class="donor">
-                <div class="blood">AB+</div>
-                <p>Raul Sigoli</p>
-            </div>
-            <div class="donor">
-                <div class="blood">AB+</div>
-                <p>Raul Sigoli</p>
-            </div>
-            <div class="donor">
-                <div class="blood">AB+</div>
-                <p>Raul Sigoli</p>
-            </div>
+           
+            {%endfor%}
 
         </section>
     </main>
@@ -75,7 +72,7 @@
     <footer> Com ❤ Raul Sigoli</footer>
 
 
-    <script src="scripts.js"></script>
+    <script src="/scripts.js"></script>
 </body>
 
 </html>
